@@ -31,7 +31,32 @@
 
         function generatePassword()
         {
+            let charCount = prompt('Question 1 of 5\nPassword Length?', 8);                                      // Define the length of password with a default of 8
+            let includeUppercase = confirm('Question 2 of 5\nDo you want upper case letters?\nExample: abcd');   // Should include uppercase characters?
+            let includeLowercase = confirm('Question 3 of 5\nDo you want lower case letters?\nExample: ABCD');   // Should include lowercase characters?
+            let includeNumeric = confirm('Question 4 of 5\nDo you want numerics?\nExample: 12345');              // Should include numeric characters?
+            let includeSpecialChar = confirm('Question 5 of 5\nDo you want special characters?\nExample: !@#$'); // Should include special characters?
             
+            let characterBank = '';     //Lets prepare the bank of allowable characters for the password.
+
+            // Iterate through the different criteria for the password.
+            if (includeUppercase)
+                characterBank += UPPER_CHARS;
+            if (includeLowercase)
+                characterBank += LOWER_CHARS;
+            if (includeNumeric)
+                characterBank += NUMERIC_CHARS;
+            if (includeSpecialChar)
+                characterBank += SPECIAL_CHARS;
+
+            console.log('Going to generate a ' + charCount + ' character password with character bank of\n' + characterBank);
+            passy = ''; //Prepare the empty string for the password
+
+            for (var i = 0, n = characterBank.length; i < charCount; ++i) {
+                passy += characterBank.charAt(Math.floor(Math.random() * n));   //Loop through the character bank to match the character count requested
+            }
+
+            return passy; // Return the password generated
         }
     </script>
 </body>
