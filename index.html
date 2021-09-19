@@ -15,7 +15,24 @@
     <label for="">Your new password</label>: <input type="text" id="passwordOutput"></input>
 
     <script>
-        
+        var charCount;                  // Define the length of password 
+        const MIN_CHAR = 8;             // Constant for minimum allowable length
+        const MAX_CHAR = 128;           // Constant for maximum allowable length
+        const UPPER_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const LOWER_CHARS = "abcdefghijklmnopqrstuvwxyz";
+        const NUMERIC_CHARS = "0123456789";
+        const SPECIAL_CHARS = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
+
+        document.getElementById("generatePassword").addEventListener("click", function() {
+            let password = generatePassword();
+            alert('Your new password is:\n\n' + password);
+            document.getElementById("passwordOutput").value = password;
+          });
+
+        function generatePassword()
+        {
+            
+        }
     </script>
 </body>
 </html>
